@@ -19,10 +19,7 @@ class Item(Model):
     response = requests.get(self.url)
     content = response.content
     soup = BeautifulSoup(content, "html.parser")
-    print(self.tag_name)
-    print(self.query)
     element = soup.find(self.tag_name, self.query)
-    print(element)
     string_price = element.text.strip()
 
     pattern = re.compile(r"(\d+,?\d+\.\d\d)")
