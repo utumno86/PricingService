@@ -18,8 +18,10 @@ class Item(Model):
   def load_price(self)-> float:
     response = requests.get(self.url)
     content = response.content
+    print(response.content)
     soup = BeautifulSoup(content, "html.parser")
     element = soup.find(self.tag_name, self.query)
+    print(element)
     string_price = element.text.strip()
 
     pattern = re.compile(r"(\d+,?\d+\.\d\d)")
