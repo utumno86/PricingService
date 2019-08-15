@@ -3,7 +3,7 @@ import os
 import pymongo
 
 class Database(object):
-  URI = os.environ.get("MONGOLAB_URI")
+  URI = os.environ.get("MONGODB_URI")
   DATABASE = pymongo.MongoClient(URI).get_database()
 
   @staticmethod
