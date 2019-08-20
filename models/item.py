@@ -15,8 +15,8 @@ class Item(Model):
   price: float = field(default=None)
   _id: str = field(default_factory=lambda: uuid.uuid4().hex)
 
-# adding a comment
- def load_price(self)-> float:
+  # adding a comment
+  def load_price(self)-> float:
     response = requests.get(self.url)
     content = response.content
     soup = BeautifulSoup(content, "html.parser")
